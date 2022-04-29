@@ -1,6 +1,4 @@
-package com.example.login;
-
-import java.util.List;
+package com.example.socialapp;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

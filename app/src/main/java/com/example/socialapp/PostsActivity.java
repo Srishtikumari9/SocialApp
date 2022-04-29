@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.socialapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.google.gson.Gson;
 
 import java.util.List;
 

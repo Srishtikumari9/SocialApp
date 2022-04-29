@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LOGIN</string>
+    <string name="app_name">SocialApp</string>
     <string name="login">LOGIN</string>
     <string name="POSTS">CLICK</string>
 </resources>

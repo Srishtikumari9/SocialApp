@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.socialapp;
 
 import org.junit.Test;
 

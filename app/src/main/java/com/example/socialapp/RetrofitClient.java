@@ -1,6 +1,4 @@
-package com.example.login;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+package com.example.socialapp;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
