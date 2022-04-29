@@ -1,4 +1,4 @@
-package com.example.socialapp;
+package com.example.socialapp.network;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

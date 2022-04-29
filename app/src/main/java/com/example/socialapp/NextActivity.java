@@ -10,6 +10,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.socialapp.models.AccessTokenResponse;
+import com.example.socialapp.network.RetrofitClient;
+import com.example.socialapp.ui.posts.PostsActivity;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,7 +31,7 @@ public class NextActivity extends AppCompatActivity {
         btn_posts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),PostsActivity.class);
+                Intent i = new Intent(getApplicationContext(), PostsActivity.class);
                 startActivity(i);
                 //Open Posts Activity
             }

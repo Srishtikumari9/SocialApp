@@ -1,4 +1,4 @@
-package com.example.socialapp;
+package com.example.socialapp.models;
 
 import com.google.gson.annotations.SerializedName;
 

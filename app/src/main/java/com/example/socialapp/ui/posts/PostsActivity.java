@@ -1,4 +1,4 @@
-package com.example.socialapp;
+package com.example.socialapp.ui.posts;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.socialapp.R;
+import com.example.socialapp.models.Post;
+import com.example.socialapp.models.Posts;
+import com.example.socialapp.network.RetrofitClient;
 
 import java.util.List;
 
