@@ -21,9 +21,6 @@ public class RetrofitClient {
                 .build();
         api = retrofitAuth.create(Api.class);
 
-       /* Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();*/
     }
 
     public static synchronized RetrofitClient getInstance() {
