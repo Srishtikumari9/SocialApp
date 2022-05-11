@@ -15,8 +15,5 @@ public interface Api {
                                              @Query("client_secret") String client_secret);
     @GET("me/posts")
     Call<Posts> getPosts(@Query("fields") String fields, @Query("access_token") String accessToken);
-
-   // Address getAddress(int customerId, String customername)
-
 }
 
