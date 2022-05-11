@@ -16,4 +16,3 @@ public interface Api {
     @GET("me/posts")
     Call<Posts> getPosts(@Query("fields") String fields, @Query("access_token") String accessToken);
 }
-
