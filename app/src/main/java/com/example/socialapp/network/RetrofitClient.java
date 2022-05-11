@@ -1,6 +1,4 @@
-package com.example.login;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+package com.example.socialapp.network;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -23,9 +21,6 @@ public class RetrofitClient {
                 .build();
         api = retrofitAuth.create(Api.class);
 
-       /* Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();*/
     }
 
     public static synchronized RetrofitClient getInstance() {

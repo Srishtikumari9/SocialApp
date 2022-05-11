@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.socialapp.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.socialapp.R;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_login;
