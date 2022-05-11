@@ -13,7 +13,6 @@ import com.example.socialapp.data.repositories.PostsRepository;
 import com.example.socialapp.data.repositories.PostsRepositoryImpl;
 import com.example.socialapp.models.Post;
 import com.example.socialapp.models.Posts;
-import com.example.socialapp.network.RetrofitClient;
 
 import java.util.List;
 

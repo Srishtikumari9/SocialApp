@@ -13,7 +13,6 @@ import android.widget.Button;
 import com.example.socialapp.data.repositories.LoginRepository;
 import com.example.socialapp.data.repositories.LoginRepositoryImpl;
 import com.example.socialapp.models.AccessTokenResponse;
-import com.example.socialapp.network.RetrofitClient;
 import com.example.socialapp.ui.posts.PostsActivity;
 
 import retrofit2.Call;
