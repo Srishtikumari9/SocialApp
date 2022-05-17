@@ -1,5 +1,11 @@
 package com.example.socialapp;
 
+import static com.example.socialapp.utils.Constants.CLIENT_ID;
+import static com.example.socialapp.utils.Constants.CLIENT_SECRET;
+import static com.example.socialapp.utils.Constants.PREF_KEY_ACCESS_TOKEN;
+import static com.example.socialapp.utils.Constants.REDIRECT_URI;
+import static com.example.socialapp.utils.Constants.SHARED_PREFERENCE_NAME;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -20,6 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class NextActivity extends AppCompatActivity {
+    public static final String TAG = NextActivity.class.getSimpleName();
     Button btn_posts;
     private LoginViewModel loginViewModel;
 
@@ -45,9 +52,10 @@ public class NextActivity extends AppCompatActivity {
         String code = data.getQueryParameter("code");
         getAccessToken(code);
     }
+
     private void getAccessToken(String code) {
-        Log.d("test", "Code = " + code);
-        Call<AccessTokenResponse> call = loginViewModel.getAccessToken(code, "1848123932049765","https://letsconnect.com/","80d7301378a81e9758c559c097caf157");
+        Log.d(TAG, "Code = " + code);
+        Call<AccessTokenResponse> call = loginViewModel.getAccessToken(code, CLIENT_ID, REDIRECT_URI, CLIENT_SECRET);
         call.enqueue(new Callback<AccessTokenResponse>() {
             @Override
             public void onResponse(Call<AccessTokenResponse> call, Response<AccessTokenResponse> response) {
@@ -55,8 +63,8 @@ public class NextActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         String accessToken = response.body().getAccessToken();
-                        SharedPreferences.Editor editor = getSharedPreferences("LetsConnect", MODE_PRIVATE).edit();
-                        editor.putString("accessToken", accessToken);
+                        SharedPreferences.Editor editor = getSharedPreferences(SHARED_PREFERENCE_NAME, MODE_PRIVATE).edit();
+                        editor.putString(PREF_KEY_ACCESS_TOKEN, accessToken);
                         editor.apply();
 
                         btn_posts.setVisibility(View.VISIBLE);
@@ -66,7 +74,7 @@ public class NextActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<AccessTokenResponse> call, Throwable t) {
-                Log.e("Test", "AccessTokenError = " + t.toString());
+                Log.e(TAG, "AccessTokenError = " + t.toString());
             }
         });
     }
