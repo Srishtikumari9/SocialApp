@@ -4,10 +4,8 @@ import static com.example.socialapp.utils.Constants.CLIENT_ID;
 import static com.example.socialapp.utils.Constants.CLIENT_SECRET;
 import static com.example.socialapp.utils.Constants.PREF_KEY_ACCESS_TOKEN;
 import static com.example.socialapp.utils.Constants.REDIRECT_URI;
-import static com.example.socialapp.utils.Constants.SHARED_PREFERENCE_NAME;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -63,9 +61,8 @@ public class NextActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         String accessToken = response.body().getAccessToken();
-                        SharedPreferences.Editor editor = getSharedPreferences(SHARED_PREFERENCE_NAME, MODE_PRIVATE).edit();
-                        editor.putString(PREF_KEY_ACCESS_TOKEN, accessToken);
-                        editor.apply();
+                        SharedPreferenceHelper.setSharedPreferenceString(NextActivity.this, PREF_KEY_ACCESS_TOKEN, accessToken);
+                        SharedPreferenceHelper.getSharedPreferenceString(NextActivity.this, PREF_KEY_ACCESS_TOKEN, "");
 
                         btn_posts.setVisibility(View.VISIBLE);
                     }
@@ -78,5 +75,4 @@ public class NextActivity extends AppCompatActivity {
             }
         });
     }
-
 }
