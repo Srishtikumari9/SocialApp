@@ -61,8 +61,7 @@ public class NextActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         String accessToken = response.body().getAccessToken();
-                        SharedPreferenceHelper.setSharedPreferenceString(NextActivity.this, PREF_KEY_ACCESS_TOKEN, accessToken);
-                        SharedPreferenceHelper.getSharedPreferenceString(NextActivity.this, PREF_KEY_ACCESS_TOKEN, "");
+                        SharedPreferenceHelper.setString(NextActivity.this, PREF_KEY_ACCESS_TOKEN, accessToken);
 
                         btn_posts.setVisibility(View.VISIBLE);
                     }

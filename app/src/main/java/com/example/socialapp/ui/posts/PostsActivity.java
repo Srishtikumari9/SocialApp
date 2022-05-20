@@ -1,9 +1,7 @@
 package com.example.socialapp.ui.posts;
 
 import static com.example.socialapp.utils.Constants.PREF_KEY_ACCESS_TOKEN;
-import static com.example.socialapp.utils.Constants.SHARED_PREFERENCE_NAME;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -13,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.socialapp.R;
+import com.example.socialapp.SharedPreferenceHelper;
 import com.example.socialapp.models.Post;
 import com.example.socialapp.models.Posts;
 import com.example.socialapp.viewmodel.PostViewModel;
@@ -44,9 +43,7 @@ public class PostsActivity extends AppCompatActivity {
     }
 
     private void getPosts() {
-        SharedPreferences prefs = getSharedPreferences(SHARED_PREFERENCE_NAME, MODE_PRIVATE);
-        String accessToken = prefs.getString(PREF_KEY_ACCESS_TOKEN, "");
-
+        String accessToken = SharedPreferenceHelper.getString(PostsActivity.this, PREF_KEY_ACCESS_TOKEN, "");
         Call<Posts> call = postViewModel.getPosts("name,description", accessToken);
         call.enqueue(new Callback<Posts>() {
             @Override
