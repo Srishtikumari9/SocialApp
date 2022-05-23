@@ -1,9 +1,10 @@
 package com.example.socialapp.data.repositories;
 
-import com.example.socialapp.models.Posts;
+import androidx.lifecycle.LiveData;
 
-import retrofit2.Call;
+import com.example.socialapp.models.Posts;
+import com.example.socialapp.network.livedataadapter.ApiResponse;
 
 public interface PostsRepository {
-    Call<Posts> getPosts(String fields, String accessToken);
+    LiveData<ApiResponse<Posts>>getPosts(String fields, String accessToken);
 }

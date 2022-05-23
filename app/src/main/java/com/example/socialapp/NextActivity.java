@@ -15,13 +15,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.socialapp.models.AccessTokenResponse;
 import com.example.socialapp.ui.posts.PostsActivity;
 import com.example.socialapp.viewmodel.LoginViewModel;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class NextActivity extends AppCompatActivity {
     public static final String TAG = NextActivity.class.getSimpleName();
@@ -53,25 +48,16 @@ public class NextActivity extends AppCompatActivity {
 
     private void getAccessToken(String code) {
         Log.d(TAG, "Code = " + code);
-        Call<AccessTokenResponse> call = loginViewModel.getAccessToken(code, CLIENT_ID, REDIRECT_URI, CLIENT_SECRET);
-        call.enqueue(new Callback<AccessTokenResponse>() {
-            @Override
-            public void onResponse(Call<AccessTokenResponse> call, Response<AccessTokenResponse> response) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String accessToken = response.body().getAccessToken();
-                        SharedPreferenceHelper.setString(NextActivity.this, PREF_KEY_ACCESS_TOKEN, accessToken);
-
-                        btn_posts.setVisibility(View.VISIBLE);
-                    }
-                });
+        loginViewModel.getAccessToken(code, CLIENT_ID, REDIRECT_URI, CLIENT_SECRET).observe(this, response -> {
+            if (response.isSuccessful()){
+                SharedPreferenceHelper.setString(NextActivity.this, PREF_KEY_ACCESS_TOKEN, response.body.getAccessToken());
+                btn_posts.setVisibility(View.VISIBLE);
+            }
+            else{
+                Log.d(TAG,response.errorMessage);
             }
 
-            @Override
-            public void onFailure(Call<AccessTokenResponse> call, Throwable t) {
-                Log.e(TAG, "AccessTokenError = " + t.toString());
-            }
         });
+
     }
 }

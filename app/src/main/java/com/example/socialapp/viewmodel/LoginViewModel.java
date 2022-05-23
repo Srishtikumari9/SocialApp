@@ -2,13 +2,13 @@ package com.example.socialapp.viewmodel;
 
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.socialapp.data.repositories.LoginRepository;
 import com.example.socialapp.data.repositories.LoginRepositoryImpl;
 import com.example.socialapp.models.AccessTokenResponse;
-
-import retrofit2.Call;
+import com.example.socialapp.network.livedataadapter.ApiResponse;
 
 public class LoginViewModel extends ViewModel {
     public static final String TAG = LoginViewModel.class.getSimpleName();
@@ -26,7 +26,7 @@ public class LoginViewModel extends ViewModel {
         Log.i(TAG, "ViewModel is destroyed");
     }
 
-    public Call<AccessTokenResponse> getAccessToken(String code, String clientId, String redirectUri, String client_secret) {
+    public LiveData<ApiResponse<AccessTokenResponse>> getAccessToken(String code, String clientId, String redirectUri, String client_secret) {
         return loginRepository.getAccessToken(code, clientId, redirectUri, client_secret);
     }
 }
