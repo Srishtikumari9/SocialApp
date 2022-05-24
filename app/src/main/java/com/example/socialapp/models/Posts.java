@@ -1,6 +1,5 @@
 package com.example.socialapp.models;
 
-import com.example.socialapp.models.Post;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

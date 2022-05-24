@@ -1,12 +1,13 @@
 package com.example.socialapp.data.repositories;
 
-import com.example.socialapp.models.AccessTokenResponse;
+import androidx.lifecycle.LiveData;
 
-import retrofit2.Call;
+import com.example.socialapp.models.AccessTokenResponse;
+import com.example.socialapp.network.livedataadapter.ApiResponse;
 
 public interface LoginRepository {
-    Call<AccessTokenResponse> getAccessToken(String code,
-                                             String clientId,
-                                             String redirectUri,
-                                             String client_secret);
+    LiveData<ApiResponse<AccessTokenResponse>> getAccessToken(String code,
+                                                              String clientId,
+                                                              String redirectUri,
+                                                              String client_secret);
 }

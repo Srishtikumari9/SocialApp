@@ -13,14 +13,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.socialapp.R;
 import com.example.socialapp.SharedPreferenceHelper;
 import com.example.socialapp.models.Post;
-import com.example.socialapp.models.Posts;
 import com.example.socialapp.viewmodel.PostViewModel;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class PostsActivity extends AppCompatActivity {
     ListView superListView;
@@ -44,23 +39,17 @@ public class PostsActivity extends AppCompatActivity {
 
     private void getPosts() {
         String accessToken = SharedPreferenceHelper.getString(PostsActivity.this, PREF_KEY_ACCESS_TOKEN, "");
-        Call<Posts> call = postViewModel.getPosts("name,description", accessToken);
-        call.enqueue(new Callback<Posts>() {
-            @Override
-            public void onResponse(Call<Posts> call, Response<Posts> response) {
-                List<Post> posts = response.body().getPosts();
-
+        postViewModel.getPosts("name,description", accessToken).observe(this, response -> {
+            if (response.isSuccessful()) {
+                List<Post> posts = response.body.getPosts();
                 for (Post post : posts) {
                     Log.i(TAG, "" + post.getName());
                 }
+            } else {
+                Log.d(TAG,response.errorMessage);
             }
-
-            @Override
-            public void onFailure(Call<Posts> call, Throwable t) {
-                Log.e(TAG, "PostsError = " + t.toString());
-            }
-
         });
     }
-
 }
+
+

@@ -7,4 +7,5 @@ public class Constants {
     public static final String CLIENT_SECRET = "80d7301378a81e9758c559c097caf157";
     public static final String SHARED_PREFERENCE_NAME = "LetsConnect";
     public static final String PREF_KEY_ACCESS_TOKEN = "accessToken";
+    public static final String FACEBOOK_GRAPH_URL ="https://graph.facebook.com/v13.0/";
 }
