@@ -46,7 +46,7 @@ public class PostsActivity extends AppCompatActivity {
                     Log.i(TAG, "" + post.getName());
                 }
             } else {
-                Log.d(TAG, "PostsError = ");
+                Log.d(TAG,response.errorMessage);
             }
         });
     }

@@ -1,6 +1,8 @@
 package com.example.socialapp.network;
 
 
+import static com.example.socialapp.utils.Constants.FACEBOOK_GRAPH_URl;
+
 import com.example.socialapp.network.livedataadapter.LiveDataCallAdapterFactory;
 
 import okhttp3.OkHttpClient;
@@ -19,7 +21,7 @@ public class RetrofitClient {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofitAuth = new Retrofit.Builder()
-                .baseUrl("https://graph.facebook.com/v13.0/")
+                .baseUrl(FACEBOOK_GRAPH_URl)
                 .client(client)
                 .addCallAdapterFactory(new LiveDataCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
