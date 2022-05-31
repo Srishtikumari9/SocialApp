@@ -13,10 +13,12 @@ import com.example.socialapp.R;
 
 public class ErrorFragment extends Fragment {
     private View view;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_error,container,false);
+        view = inflater.inflate(R.layout.fragment_error, container, false);
         return view;
     }
 }
+

@@ -15,7 +15,7 @@ public class HomeViewModel extends ViewModel {
 
     private PostsRepository postsRepository;
 
-    public HomeViewModel(){
+    public HomeViewModel() {
 
         this.postsRepository = new PostsRepositoryImpl();
     }
@@ -27,7 +27,7 @@ public class HomeViewModel extends ViewModel {
         Log.i(TAG, "ViewModel is destroyed");
     }
 
-    public LiveData<ApiResponse<Posts>> getPosts(String fields, String accessToken){
-        return (LiveData<ApiResponse<Posts>>) postsRepository.getPosts(fields,accessToken);
+    public LiveData<ApiResponse<Posts>> getPosts(String fields, String accessToken) {
+        return (LiveData<ApiResponse<Posts>>) postsRepository.getPosts(fields, accessToken);
     }
 }

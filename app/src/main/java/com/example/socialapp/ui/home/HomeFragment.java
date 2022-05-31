@@ -38,17 +38,17 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_home,container,false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         recyclerView = view.findViewById(R.id.recView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true);
         homeRecyclerViewAdapter = new HomeRecyclerViewAdapter(new ArrayList<>());
         recyclerView.setAdapter(homeRecyclerViewAdapter);
         recyclerView.setLayoutManager(linearLayoutManager);
         getPosts();
         return view;
-
     }
+
     private void getPosts() {
         String accessToken = SharedPreferenceHelper.getString(getContext(), PREF_KEY_ACCESS_TOKEN, "");
         homeViewModel.getPosts("name,description", accessToken).observe(getViewLifecycleOwner(), response -> {
@@ -56,10 +56,12 @@ public class HomeFragment extends Fragment {
                 List<Post> posts = response.body.getPosts();
                 homeRecyclerViewAdapter.update(posts);
 
-                    Log.i(TAG, Arrays.toString(posts.toArray()));
+                Log.i(TAG, Arrays.toString(posts.toArray()));
             } else {
-                Log.d(TAG,response.errorMessage);
+                Log.d(TAG, response.errorMessage);
             }
         });
     }
 }
+
+

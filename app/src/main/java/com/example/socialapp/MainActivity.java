@@ -32,17 +32,18 @@ public class MainActivity extends AppCompatActivity {
         String code = data.getQueryParameter("code");
         getAccessToken(code);
     }
+
     private void getAccessToken(String code) {
         Log.d(TAG, "Code = " + code);
         mainViewModel.getAccessToken(code, CLIENT_ID, REDIRECT_URI, CLIENT_SECRET).observe(this, response -> {
-            if (response.isSuccessful()){
+            if (response.isSuccessful()) {
                 SharedPreferenceHelper.setString(MainActivity.this, PREF_KEY_ACCESS_TOKEN, response.body.getAccessToken());
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new HomeFragment()).commit();
-            }
-            else{
-                Log.d(TAG,response.errorMessage);
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_container,new ErrorFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new HomeFragment()).commit();
+            } else {
+                Log.d(TAG, response.errorMessage);
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_container, new ErrorFragment()).commit();
             }
         });
     }
 }
+

@@ -11,7 +11,7 @@ import com.example.socialapp.network.livedataadapter.ApiResponse;
 public class MainViewModel extends ViewModel {
     private LoginRepository loginRepository;
 
-    public MainViewModel(){
+    public MainViewModel() {
         this.loginRepository = new LoginRepositoryImpl();
     }
 
