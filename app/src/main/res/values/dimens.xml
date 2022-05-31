@@ -7,4 +7,9 @@
     <dimen name="btn_posts_height">73dp</dimen>
     <dimen name="btn_posts_marginTop">248dp</dimen>
     <dimen name="btn_posts_marginEnd">108dp</dimen>
+    <dimen name="card_view_corner_radius">5dp</dimen>
+    <dimen name="card_view_elevation">4dp</dimen>
+    <dimen name="text_view_margin_left">4dp</dimen>
+    <dimen name="text_view_margin_top">4dp</dimen>
+    <dimen name="text_view_text_size">25sp</dimen>
 </resources>
