@@ -15,10 +15,7 @@
         android:theme="@style/Theme.SocialApp">
 
         <activity
-            android:name=".ui.posts.PostsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NextActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

@@ -11,6 +11,7 @@ public class AccessTokenResponse {
     }
 
     public void setAccessToken(String accessToken) {
+
         this.accessToken = accessToken;
     }
 }
